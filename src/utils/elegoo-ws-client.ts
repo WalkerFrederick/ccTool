@@ -1,69 +1,69 @@
 export interface PrinterAttributes {
-    Name?: string;
-    MachineName?: string;
-    BrandName?: string;
-    ProtocolVersion?: string;
-    FirmwareVersion?: string;
-    XYZsize?: string;
-    MainboardIP?: string;
-    MainboardMAC?: string;
-    MainboardID?: string;
-    SDCPStatus?: number;
-    MaximumCloudSDCPSercicesAllowed?: number;
-    NumberOfCloudSDCPServicesConnected?: number;
-    NumberOfVideoStreamConnected?: number;
-    MaximumVideoStreamAllowed?: number;
-    NetworkStatus?: string;
-    UsbDiskStatus?: number;
-    Capabilities?: string[];
-    SupportFileType?: string[];
-    DevicesStatus?: {
-      SgStatus?: number;
-      ZMotorStatus?: number;
-      XMotorStatus?: number;
-      YMotorStatus?: number;
-    };
-    CameraStatus?: number;
-    RemainingMemory?: number;
-    TLPNoCapPos?: number;
-    TLPStartCapPos?: number;
-    TLPInterLayers?: number;
-  }
+  Name?: string;
+  MachineName?: string;
+  BrandName?: string;
+  ProtocolVersion?: string;
+  FirmwareVersion?: string;
+  XYZsize?: string;
+  MainboardIP?: string;
+  MainboardMAC?: string;
+  MainboardID?: string;
+  SDCPStatus?: number;
+  MaximumCloudSDCPSercicesAllowed?: number;
+  NumberOfCloudSDCPServicesConnected?: number;
+  NumberOfVideoStreamConnected?: number;
+  MaximumVideoStreamAllowed?: number;
+  NetworkStatus?: string;
+  UsbDiskStatus?: number;
+  Capabilities?: string[];
+  SupportFileType?: string[];
+  DevicesStatus?: {
+    SgStatus?: number;
+    ZMotorStatus?: number;
+    XMotorStatus?: number;
+    YMotorStatus?: number;
+  };
+  CameraStatus?: number;
+  RemainingMemory?: number;
+  TLPNoCapPos?: number;
+  TLPStartCapPos?: number;
+  TLPInterLayers?: number;
+}
 
- export interface PrinterStatus {
-    CurrentStatus?: number[];
-    TimeLapseStatus?: number;
-    PlatFormType?: number;
-    TempOfHotbed?: number;
-    TempOfNozzle?: number;
-    TempOfBox?: number;
-    TempTargetHotbed?: number;
-    TempTargetNozzle?: number;
-    TempTargetBox?: number;
-    CurrenCoord?: string;
-    CurrentFanSpeed?: {
-      ModelFan?: number;
-      AuxiliaryFan?: number;
-      BoxFan?: number;
-    };
-    ZOffset?: number;
-    LightStatus?: {
-      SecondLight?: number;
-      RgbLight?: number[];
-    };
-    PrintInfo?: {
-      Status?: number;
-      CurrentLayer?: number;
-      TotalLayer?: number;
-      CurrentTicks?: number;
-      TotalTicks?: number;
-      Filename?: string;
-      TaskId?: string;
-      PrintSpeedPct?: number;
-      Progress?: number;
-    };
-  }
-  
+export interface PrinterStatus {
+  CurrentStatus?: number[];
+  TimeLapseStatus?: number;
+  PlatFormType?: number;
+  TempOfHotbed?: number;
+  TempOfNozzle?: number;
+  TempOfBox?: number;
+  TempTargetHotbed?: number;
+  TempTargetNozzle?: number;
+  TempTargetBox?: number;
+  CurrenCoord?: string;
+  CurrentFanSpeed?: {
+    ModelFan?: number;
+    AuxiliaryFan?: number;
+    BoxFan?: number;
+  };
+  ZOffset?: number;
+  LightStatus?: {
+    SecondLight?: number;
+    RgbLight?: number[];
+  };
+  PrintInfo?: {
+    Status?: number;
+    CurrentLayer?: number;
+    TotalLayer?: number;
+    CurrentTicks?: number;
+    TotalTicks?: number;
+    Filename?: string;
+    TaskId?: string;
+    PrintSpeedPct?: number;
+    Progress?: number;
+  };
+}
+
 type WSMessage = {
   Id: string;
   Data: {
@@ -77,11 +77,10 @@ type WSMessage = {
 };
 
 interface WSResponseMessage {
-    MainboardID: string;
-    Attributes?: PrinterAttributes;
-    Status?: PrinterStatus;
+  MainboardID: string;
+  Attributes?: PrinterAttributes;
+  Status?: PrinterStatus;
 }
-
 
 export class ElegooWSClient {
   private socket: WebSocket | null = null;
@@ -89,7 +88,8 @@ export class ElegooWSClient {
   private mainboardId = '';
   private pingInterval: NodeJS.Timeout | null = null;
   private readonly reconnectInterval = 3000;
-  private readonly onMessageHandlers: Array<(msg: WSResponseMessage) => void> = [];
+  private readonly onMessageHandlers: Array<(msg: WSResponseMessage) => void> =
+    [];
 
   constructor(url: string) {
     this.url = url;

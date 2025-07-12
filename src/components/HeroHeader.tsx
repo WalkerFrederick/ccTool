@@ -16,10 +16,12 @@ export default function HeroHeader() {
                 The Unofficial Centuri Carbon Companion!
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto md:mx-0 mb-4">
-                A powerful and modern tool built with Next.js, React, and TypeScript.
+                A powerful and modern tool built with Next.js, React, and
+                TypeScript.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-200 max-w-xl mx-auto md:mx-0">
-                Start building your amazing application with this clean, scalable foundation.
+                Start building your amazing application with this clean,
+                scalable foundation.
               </p>
               {/* CTA Button */}
               <div className="mt-8">

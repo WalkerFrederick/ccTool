@@ -19,11 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'ccTool',
   description: 'A powerful tool for your needs',
-  keywords: [
-    'tool',
-    'utility',
-    'web application',
-  ],
+  keywords: ['tool', 'utility', 'web application'],
   authors: [{ name: 'ccTool Team' }],
   creator: 'ccTool',
   openGraph: {
@@ -77,9 +73,7 @@ export default function RootLayout({
         <SiteSettingsProvider>
           <AlertHeader />
           <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex flex-col min-h-screen">{children}</main>
           <Footer />
         </SiteSettingsProvider>
       </body>
