@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-geist-sans:
+    'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --font-geist-mono:
+    'Geist Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono',
+    'Source Code Pro', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --background: white;
+  --foreground: #171717;
+  --muted: #6b7280;
+  --muted-foreground: #9ca3af;
+  --border: #e5e7eb;
+  --hover: #f3f4f6;
+}
+
+.dark {
+  --background: #111827;
+  --foreground: white;
+  --muted: #9ca3af;
+  --muted-foreground: #6b7280;
+  --border: #374151;
+  --hover: #1f2937;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--font-geist-sans);
+  background-color: white;
+  color: #171717;
+}
+
+.dark body {
+  background-color: #111827;
+  color: white;
+}
+
+/* Checklist (task list) styles */
+.prose input[type='checkbox'] {
+  accent-color: var(--color-purple-500);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+/* Table styles */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+  padding: 0.5em 1em;
+}
+
+.prose th {
+  background: #f3f4f6; /* Tailwind gray-100 */
+  font-weight: 600;
+}
+
+/* Dark mode table styles */
+.dark .prose th,
+.dark .prose td {
+  border-color: #374151; /* Tailwind gray-700 */
+}
+
+.dark .prose th {
+  background: #1f2937; /* Tailwind gray-800 */
+}
